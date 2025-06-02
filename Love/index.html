@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Для Ксюши ❤️</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
+<div class="hearts-container"></div>
+
+<body>
+  <header>
+    <h1>Для Ксюши <span class="heart">❤️</span></h1>
+    <button class="burger" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="wishes.html">Пожелания</a>
+    </nav>
+  </header>
+
+  <!-- ❤️ Контент страницы -->
+  <main class="main-content">
+    <h2>Милая Ксюша 💌</h2>
+    <p>
+      Этот сайт — маленький подарок от всего сердца, сделанный специально для тебя.
+      Пусть каждая страничка напомнит тебе, как ты дорога, и как ты умеешь вдохновлять улыбкой.
+    </p>
+    <p>
+      Спасибо тебе за то, что ты есть. Ты — особенная. Надеюсь, тебе понравится этот сюрприз.
+    </p>
+  </main>
+    <footer>
+  <p>Сделано с любовью <span class="footer-heart">❤️</span> специально для Ксюши</p>
+  <p>&copy; 2025 — Твой котёнок🌙</p>
+</footer>
+
+  <script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    nav.classList.toggle("open");
+  });
+
+  // Падающие сердечки
+  const container = document.querySelector(".hearts-container");
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart-fall");
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+    container.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
+

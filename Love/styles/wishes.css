@@ -1,0 +1,248 @@
+/* Общие стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://static.tildacdn.com/stor6165-6566-4231-a463-626461323337/80603920.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  min-height: 100vh;
+}
+
+
+
+/* Заголовок */
+h2 {
+  color: black;
+  text-shadow: 
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+  font-size: 2.2rem;
+  margin: 30px 0 20px;
+  text-align: center;
+}
+
+/* Блок пожелания */
+.wishes {
+  max-width: 800px;
+  margin: 100px auto 40px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.wish-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(4px);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  white-space: pre-line;
+}
+
+/* Бургер-меню */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  margin-left: auto; /* чтобы бургер был справа */
+}
+
+.burger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Навигация */
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Бургер-меню */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  margin-left: auto; /* бургер справа */
+  margin-top: -5px; /* поднимаем вверх */
+  position: relative;
+}
+
+
+.burger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Навигация по умолчанию */
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.95rem;
+  margin-top: 40px;
+  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+.footer-heart {
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+  transform-origin: center;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Падающие сердечки */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.heart-fall {
+  position: absolute;
+  top: -50px;
+  font-size: 20px;
+  color: pink;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    gap: 15px;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+    width: max-content;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 1rem;
+    text-align: right;
+  }
+  
+  /* Уменьшаем шрифты и отступы для мобильных */
+  .wishes {
+    margin: 80px 15px 40px;
+    padding: 15px;
+  }
+
+  .wish-box {
+    font-size: 1.05rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+}

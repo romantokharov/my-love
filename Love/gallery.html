@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Галерея — Для Ксюши</title>
+  <link rel="stylesheet" href="./styles/gallery.css" />
+</head>
+<body>
+  <header>
+    <h1>Для Ксюши <span class="heart">❤️</span></h1>
+    <button class="burger" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="wishes.html">Пожелания</a>
+    </nav>
+  </header>
+
+  <main class="gallery">
+    <h2>Наши моменты 💫</h2>
+    <div class="gallery-grid">
+      <img src="./img/очки ксюша.jpeg" alt="Фото 1" />
+      <img src="./img/очки рома.jpeg" alt="Фото 2" />
+      <img src="./img/попа Ксюша.jpeg" alt="Фото 3" />
+      <img src="./img/поа рома.jpeg" alt="Фото 4" />
+      <img src="./img/цветы Ксюша.jpeg" alt="Фото 5" />
+      <img src="./img/цветы Рома.jpeg" alt="Фото 6" />
+    </div>
+  </main>
+
+  <footer>
+    <p>Сделано с любовью <span class="footer-heart">❤️</span> специально для Ксюши</p>
+    <p>&copy; 2025 — Твой котёнок 🌙</p>
+  </footer>
+
+  <div class="hearts-container"></div>
+
+  <script>
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector("nav");
+
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+      nav.classList.toggle("open");
+    });
+
+    const container = document.querySelector(".hearts-container");
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart-fall");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
